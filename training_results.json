@@ -1,0 +1,68 @@
+{
+  "epochs": 10,
+  "classes": [
+    "airplane",
+    "automobile",
+    "bird",
+    "cat",
+    "deer",
+    "dog",
+    "frog",
+    "horse",
+    "ship",
+    "truck"
+  ],
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.578490459213257,
+      "train_accuracy": 43.47
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.2681606740570068,
+      "train_accuracy": 54.614
+    },
+    {
+      "epoch": 3,
+      "train_loss": 1.1338242001724244,
+      "train_accuracy": 59.578
+    },
+    {
+      "epoch": 4,
+      "train_loss": 1.0426482807731627,
+      "train_accuracy": 63.09
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.9626857139587403,
+      "train_accuracy": 65.918
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.8936840398406982,
+      "train_accuracy": 68.432
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.8269352514457703,
+      "train_accuracy": 70.996
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.7662222185516357,
+      "train_accuracy": 72.922
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.7112969720363617,
+      "train_accuracy": 75.066
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.6585845260334015,
+      "train_accuracy": 76.82
+    }
+  ],
+  "test_accuracy": 64.97
+}
