@@ -102,3 +102,6 @@ def generate_digits(count: int = Query(default=16, ge=1, le=64)):
     buffer = io.BytesIO()
     pil_image.save(buffer, format="PNG")
     return Response(content=buffer.getvalue(), media_type="image/png")
+
+from assignment4.service import router as assignment4_router
+app.include_router(assignment4_router)

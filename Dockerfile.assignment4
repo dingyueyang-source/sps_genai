@@ -1,0 +1,21 @@
+FROM python:3.12-slim-bookworm AS runtime
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 OMP_NUM_THREADS=4
+WORKDIR /code
+
+COPY assignment4/requirements.txt /tmp/requirements.txt
+RUN python -m pip install --no-cache-dir -r /tmp/requirements.txt \
+    && python -m pip install --no-cache-dir \
+       --index-url https://download.pytorch.org/whl/cpu --extra-index-url https://pypi.org/simple \
+       torch==2.5.1 torchvision==0.20.1
+
+COPY assignment4 /code/assignment4
+EXPOSE 8000
+
+FROM runtime AS integrated
+COPY assignment4/requirements-integrated.txt /tmp/requirements-integrated.txt
+RUN python -m pip install --no-cache-dir -r /tmp/requirements-integrated.txt
+COPY main.py cnn_model.py gan_model.py *.pth /code/
+CMD ["python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+
+FROM runtime AS assignment4
+CMD ["python", "-m", "uvicorn", "assignment4.service:app", "--host", "0.0.0.0", "--port", "8000"]
